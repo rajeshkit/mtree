@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- source of bean and it read by IOC application context container -->
+	<bean id="t1" class="com.mindtree.springdemo.Train"></bean>
+	<bean id="t2" class="com.mindtree.springdemo.Train"></bean>
+	<bean id="p1" class="com.mindtree.springdemo.Passenger"></bean>
+	<bean id="p2" class="com.mindtree.springdemo.Passenger"></bean>
+	<bean id="tt" class="com.mindtree.springdemo.TrainTiming"></bean>
+
+</beans>
