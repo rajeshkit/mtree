@@ -15,11 +15,13 @@ public class App
     		BeanFactory b;
     		ApplicationContext ac=null;
     		ac=new ClassPathXmlApplicationContext("springbeanconfiguration.xml");
-			String[] str = ac.getBeanDefinitionNames();
-			for (String string : str) {
-				System.out.println(string);
-				System.out.println(ac.getType(string));
-			}
+    		Passenger p=ac.getBean(Passenger.class);
+    		p.dispplay();
+    		//			String[] str = ac.getBeanDefinitionNames();
+//			for (String string : str) {
+//				System.out.println(string);
+//				System.out.println(ac.getType(string));
+//			}
 			// i am creating bean, manage bean object, bean destroy
 			// t1,t2,t3 beans
 			// who is created this bean - developer(Rajesh)

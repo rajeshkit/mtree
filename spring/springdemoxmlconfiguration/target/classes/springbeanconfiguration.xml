@@ -5,10 +5,21 @@
         https://www.springframework.org/schema/beans/spring-beans.xsd">
 
 	<!-- source of bean and it read by IOC application context container -->
-	<bean id="t1" class="com.mindtree.springdemo.Train"></bean>
-	<bean id="t2" class="com.mindtree.springdemo.Train"></bean>
-	<bean id="p1" class="com.mindtree.springdemo.Passenger"></bean>
-	<bean id="p2" class="com.mindtree.springdemo.Passenger"></bean>
-	<bean id="tt" class="com.mindtree.springdemo.TrainTiming"></bean>
-
+	<bean id="t1" class="com.mindtree.springdemo.Train">
+		<constructor-arg name="tn" value="2345"></constructor-arg>
+		<constructor-arg name="tNa" value="Shadapti Express"></constructor-arg>
+		<constructor-arg name="s" value="Chennai"></constructor-arg>
+		<constructor-arg name="d" value="New Delhi"></constructor-arg>
+	</bean>
+	<bean id="t2" class="com.mindtree.springdemo.Train">
+		<property name="trainNumber" value="2345"></property>
+		<property name="trainName" value="Shadapti Express"></property>
+		<property name="source" value="chennai"></property>
+		<property name="destination" value="New Delhi"></property>
+	</bean>
+	<bean id="p1" class="com.mindtree.springdemo.Passenger">
+		<property name="passengerId" value="98948"></property>
+		<property name="passengerName" value="Rajesh"></property>
+	</bean>
+	
 </beans>

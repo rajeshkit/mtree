@@ -1,6 +1,7 @@
 package com.mindtree.springdemo;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import org.springframework.stereotype.Component;
 @Component
@@ -35,6 +36,9 @@ public class Train implements Serializable{
 	}
 	public void setDestination(String destination) {
 		this.destination = destination;
+	}
+	public String schedule() {
+		return new Date().toString();
 	}
 	
 }

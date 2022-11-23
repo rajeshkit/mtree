@@ -14,11 +14,17 @@ public class App
     		BeanFactory b;
     		ApplicationContext ac=null;
     		ac=new ClassPathXmlApplicationContext("springbeanconfiguration.xml");
-			TrainTiming t=ac.getBean(TrainTiming.class);
-			t.display();
-			t.show();
-		
-			
+			Train train=ac.getBean("t1",Train.class);//223344
+			System.out.println(train.getTrainNumber());//0
+			System.out.println(train.getTrainName());//null
+			System.out.println(train.getSource());//null
+			System.out.println(train.getDestination());//null
+			System.out.println("******************");
+			Passenger p=ac.getBean(Passenger.class);
+			System.out.println(p.getPassengerId());
+			System.out.println(p.getPassengerName());
+			p.getTrainSchedule();
+//			
 			// i am creating bean, manage bean object, bean destroy
 			// t1,t2,t3 beans
 			// who is created this bean - developer(Rajesh)

@@ -9,10 +9,6 @@
   	<context:annotation-config></context:annotation-config>
   	<context:component-scan base-package="com.mindtree.springdemo"></context:component-scan>
   	<context:component-scan base-package="com.mindtree.two"></context:component-scan>
-  	<!-- <bean id="t1" class="com.mindtree.springdemo.Train"></bean>
-	<bean id="t2" class="com.mindtree.springdemo.Train"></bean>
-	<bean id="p1" class="com.mindtree.springdemo.Passenger"></bean>
-	<bean id="p2" class="com.mindtree.springdemo.Passenger"></bean>
-	<bean id="tt" class="com.mindtree.springdemo.TrainTiming"></bean> -->
+  	
 
 </beans>
