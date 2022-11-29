@@ -1,0 +1,1455 @@
+OOP:-
+	classes
+	object
+		-> real word existing things can be object
+			-> Physical Object - customer, laptop						-> virtual object - transaction
+		object - state and behaviour
+		class - template or blueprint
+			class Customer{
+				//members
+				// member variable - instance and static
+				// member function - instance and static
+				// constructor
+				// 4 variable
+				// 4 methods
+			}
+		cms ->
+			customer
+			account
+			profile
+			qualification
+		bank ->
+			customer 
+				- customerid,name,phone,email
+				- createAccount(),updateAddress(),
+				  trasaction(), atmDeposit()
+			branch
+				- id, name, address, phone
+				
+			employee
+			transaction
+				- id, date, time , status,, comments
+				- suucess(), failure()
+			deposit
+			withdrawl
+			cheque
+			creditcard
+			debitcard
+	Naming convention:-
+		variable name - 
+				one word - all letters must be smaller 					   case	
+				multiple word - first word all letter smaller case second word onwards each word starting letter must be in capital	
+			int price;
+			float cost;
+			int id;
+			
+			int savingsAccountBalance;
+			
+		method name:-
+			one word - all letters must be smaller 					  	 case ends with the ()	
+			multiple word - first word all letter 			smaller case second word onwards each word 			starting letter must be in capital ends with the ()
+
+		package name:
+			all letters must be lowercase
+		class Name:
+			One word - each word starting letter capital
+			Multiple Word- each word starting letter capital			
+Scope:-
+	scope - how far the variable or method is accessable or using
+	
+	static method -> access instance and instance method
+			 by object reference
+	static method -> access static variable and static method
+			 by using classname	
+	instance method -> access other instance variable other instance 			           method directly
+	instance method -> access staic variable and static method by 		                           using classname 
+Inheritance:-
+************
+	Has-a --> just create a reference and object of parent class
+		  and access the parent class member using object 		  reference
+	Is-a --> extends or implements
+Packages:-
+*********
+	icici->mobilebankingapp -> www.icici.com
+			com.icici.account
+				- Account
+				- saving 
+				- demat
+				- current
+			com.icici.customer
+				- Customer
+				- User
+			com.icici.loan
+				- Loan
+				- HousingLoan
+				- VechileLoan
+				- PersonalLoan
+			com.icici.creditcard
+				- CreditCard
+				- platinum
+				- Rupay
+				- Diamond
+			com.icici.debitcard
+				- DebitCard
+				- Help
+Access modifers - visibility - scope 
+	Places:-
+		before variable
+		before method
+		before classname
+		before interface
+		before constructor
+	- public - with in same class, other class from same package
+		   also from other packages
+	- protected - it is same as default 
+	- default - Package level modifier - within same class and other 
+		    classes from same package
+	- private - it can be accessable only with in the class other 		    classes from same package and other package is not                     visible
+
+Non Access Modifers	
+			in
+		Places
+			- before variable
+			- before method 
+			- before class
+			
+	- static
+	- final
+	- synchronized
+	- abstract
+	- strictfp
+
+	variable
+		accessmodifer nonaccessmodfier datatype variableName;
+
+	method;
+		accessmodifer nonaccessmodfier returtype methodName(){
+		}
+	class:
+		accessmodifer nonaccessmodfier class Classname{
+		
+		}
+
+abstraction:-
+	* showing essential features and hiding complex details
+	  	- clutch
+		- accelaration
+		- brake
+		- how to start
+		- speed 
+
+		public void add(int no1,int no2); // abstraction
+		// it is showing essentail features
+		
+		
+		ways of abstraction implementation
+		1. abstrct class
+			- if ur class has one abstract method make class
+			  as abstract class
+			- Java doesnot allow u to create object for an 
+			  abstract class
+			- abstract class can be inherited or extended to
+			  an another class 
+		2. interface
+	
+Encapsulation:-
+***************
+		capsule -> class is capsule your data
+		
+Polymorphism:-
+*************
+		1. Compile time -> javac filename.java -> cntl + save
+				-> it will reserve the space
+
+				Customer c=new Customer();
+
+		compile time-> Customer c; c will be assigned to null
+		Runtime -> it allocates a object memeory and assing 
+			   memory block address into the reference 
+			   variable
+	
+		2. Runtime -> java filename -> Run as -> java application
+		3. binding -> function call resolving
+				add();
+				public void add(){
+					//logic
+				}
+		3.1 Compile time binding or early binding or static 		    binding
+		3.2 Runtime Binding or late binding or dynamic binding
+	
+	poly -> many 
+	morph -> forms	
+		sendCourier(byfriends){
+			//steps and //own implemenation
+		}
+		sendCourier(bycourierservice){
+			//own implemenation
+		}	
+		sendCourier(byself){
+			//own implemenation
+		}
+		sendCourier(bythirdparty){
+			//own implemenation
+		}
+
+		class Area{
+			public void findArea(int a){
+				return a*a;
+			}
+			public void findArea(float PI,int radius){
+				return PI*r*r;
+			}
+			public void findArea(int length,int bredth)
+			{	
+				return length*bredth;
+			}
+		}		
+
+	Types of polymorphism
+		1. method overloadding - compile time binding
+			-> method with same different arg
+		2. method overriding - runtime binding
+			-> method with same and same arg
+
+
+Exception Handling:-
+*******************
+				
+	* An abnormal condition happens during the code execution 
+	* Need to handle an exception otherwise the gets terminated
+	  ubruptly
+	
+	* handle the exception using an excpetion handler
+		1. user defined catch handler
+		2. jvm predefined default catch handler	
+
+	* How the programmer can handle an exception
+		1. try{} catch(){}		
+
+	
+			
+class ArithemticException extends Exception{
+	//pure java class
+}
+
+Customer customer=new Customer();//909090 // named reference customer object
+return customer;  //909090
+
+throw new Customer(); //808080  Annonymous reference customer object
+
+Types of exception
+	1. Checked Exception 
+		Any exception class which extends Exception as parent 				class 
+	2. Unchecked Exception or Runtime Exception
+		Any exception class which extends RuntimeException 		as parent class  
+	
+	
+	exception propogation:-
+
+
+final keyword:-
+	places:-
+		before variable
+			final int a=10; // constant
+			a=20; //error
+		before method
+		Vasavi-	class Mobile{
+				public final void call(){
+					s.o.p(4g);
+				}
+				public void sms(){
+					
+				}
+			}
+
+		Sahana-	class Apple extends Mobile{
+				public void sms(){
+					s.o.p(5g);
+				}
+			}
+			class App{
+				p s v main(String args[]){
+					Mobile m =new Apple();
+					m.call();
+				}
+			}
+			
+
+
+
+		before class:-
+		Vasavi-	final class Mobile{
+				public void call(){
+					s.o.p(4g);
+				}
+				public void sms(){
+				}
+			}
+
+		sahana-	class Apple {
+				
+			}
+			class App{
+				p s v main(String args[]){
+					Mobile m =new Apple();
+					m.call();
+				}
+			}
+
+Constructor:-
+	
+	class memebers
+		- variable
+		- method
+		- constrcutor
+	constructor -> is a special member function or method
+		    -> constructor doesnot have returntype
+		    -> constructor name should be same as classname
+		    -> u can write zero or more constructor with diff arg
+                     accssmodifier methodName(arg){
+			
+		     }
+	why constructor:-
+		* You want to perform something soon after object memeory
+		  gets created for the class
+		
+		* If you want to initialize values inside the instance
+		  varible soon after the object created
+
+	//jvm - during runtime if coder have not created any constructor            then jvm automatically or implicitly adds no arg default           	 constructor and initialize the instance variable with its                  default values
+
+constructor with inheritance:-
+*****************************
+
+
+Array:-
+******
+	- Array is stores group or collection of similar type values
+	- group of values holded by single reference variable
+	- Array size is fixed. once size is mentioned we cannot increase 
+    	  or decrease the size of the array
+	- Array is random access
+	Drawback:-
+	*********
+		Insertion and deletion is very difficult need to move 
+		your data back and forth phiscally
+
+
+	primitive values
+		int[] inings=new int[7]; // group of primitive value
+	Reference values(objects) 
+
+	String[] str=new String[3];//group of String predefined defined 				     reference obj
+	Player[] p=new Player[3];//group of player user defined reference 				 obj
+
+Collection:-
+***********
+	- Collection is stores group or collection of similar type objects
+	- group of objects holded by single reference variable
+	- collection size is dynamic. can increase 
+    	  or decrease the size of the array
+	
+
+            Array  			Collection
+		
+	primitives			objects
+	or objects	
+			
+	size - fixed			size- dynamic
+
+			
+					datastructure
+
+
+	In Java user input
+	number - 123, 5.6, 4567.7777 - byte,short,int, long, float, double
+	char - a-zA-Zo-9,any - char
+	boolean - true, false - boolean
+
+            		  WRAPPER CLASSES
+	PRIMITIVE TYPE   -----------------> Object Type or reference Type           
+	byte 		Byte    --> obj representation of primitive byte
+	short		Short	--> obj representation of primitive short
+	int 		Integer
+	float		Float
+	long 		Long
+	double 		Double
+	char		Character
+	boolean 	Boolean
+
+	Types 
+	boxing - primitive value -> Object type
+  	Unboxing - object Type -> Primitive type
+
+	Arrays -> fixed, String - similar type 
+		Use case
+	        Monday,Tuesday, Wednesday, Thursday,friday,saturday,Sunday
+
+	Collection -> unkown , size is dont similar type
+		Use Case
+		Database  -> Player details 
+		  	-> select * from player; 
+				time t1  - 10 rows - 10 - players
+				time t2 - 15 rows - 15 Players
+				time t3 - 5 rows - 5 Players	
+List(I)	
+	Vector - synchronized method
+	       - Thread safe
+	ArrayList
+		* Less deletion / insertion 
+		* Random / sequential access or search
+		* Array datastructure
+		* Arraylist is not thread safe
+	LinkedList
+		* More deletion / insertion
+		* Sequential Search or access only		
+		* Doubly Linked List
+
+Set(I):-
+	HashSet(c)
+	LinkedHashSet(c)
+	TreeSet(c)
+
+Sorting in collection
+	1. Comparable - compareTo
+	2. Comparator - compare
+	
+Jdk 1.8 Features:-
+	1. Functional Interface
+	2. static and default method in interface
+	3. Lambda expression	
+	4. method reference
+	5. Local Date and Time
+	6. Concurrency
+	
+Interface:-
+	* Interface is similar to class
+	* But interface can have public abstract method, public final 
+	  variable
+	* Interface cant have implemented method(upto jdk 1.7)
+	* jdk 1.8 interface can have implemented instance or static
+	  method
+	* Even after jdk 1.8 you cannot create an object for interface
+Functional Interface:-
+*********************
+	* An interface has exactly only one abstract method then that 
+	  interface is called as functionalinterface			
+
+Lambda Expression:-
+*******************
+	* Lambda is concise, small
+	* Lambda is an implmentation of an abstract method from any 	  functional interface
+
+	Rule for writting lambda expression:-
+	1. lambda expression doesnot need method name
+	2. Lambda expression doesnot require returntype
+	3. doesnot need access and non access modifier
+	4. doesnot takes annotation
+	5. Lamda expression after the arg () need an arrow operator
+	6. In Lamda arguments,need not to mentioned the datatype.remove 	   the datatype
+	7. If lamda body has only one statement them remove curly braces
+
+	7. If lamda body has only one statement that to if it is return
+	   statement then remove return keyword
+
+Stream API -> jdk 1.8
+	* group of objects u can apply some operation on the stream.
+	* collection
+	private static int sumIterator(List<Integer> list) {
+		Iterator<Integer> it = list.iterator();
+		int sum = 0;
+		while (it.hasNext()) {
+			int num = it.next();
+			if (num > 10) {
+			sum += num;
+		}
+	}
+	return sum;
+	}
+
+	private static int sumStream(List<Integer> list) {
+	return list.stream().filter(i -> i > 10).mapToInt(i ->i).sum();
+	}
+Collection vs Stream API:-
+	
+	A collection is an in-memory data structure to hold values and 	before we start using collection, all the values should have been 	populated
+ 	java Stream is a data structure that is computed on-demand. Java 	Stream doesn’t store data, it operates on the source data 	structure (collection and array) and produce pipelined data that 	we can use and perform specific operations
+Stream API (jdk 1.8)- 
+Stream IO (jdk 1.0):-read write	
+	
+		byte - 1 byte -  8 bits - 0 - 127 - image,video,audio,pdf
+		character - 2 bytes - 16 bits - 0 - 256 - text data,		
+						word, excel sheet
+
+		Filesystem -------> java code
+			InputStream - abstract class
+			Reader - abstract class
+		java code -------> filesystem
+			OutputStream - abstract class
+			Writer - abstract class
+	
+var args
+
+	variable length arguments
+	
+	public void add(int a,int b){
+		return a+b;
+	}
+	public void add(int  a,int b,int c){
+		return a+b+c;
+	}
+	public void add(int a,int b,int c,int d){
+		return a+b+c+d;
+	}
+	public void add(int a,int b,int c,int d,int e){
+		return a+b+c+d+e;
+	}
+		
+IDE:- Integrated Development Envirnment:-
+	-> faster devlopement
+	-> automatic generate code
+	-> debugging
+	-> test	
+	-> compile and run the code
+
+	Java application 
+			-> console application - j2se
+			-> window application - swings, applet - j2se
+			-> web application - jsp/servlet - j2ee
+			-> enterprise application - j2ee
+			-> mobile application - j2me
+
+Java:-
+	Java Multithreading 
+
+1. By extending a Thread
+		class Save extends Thread{
+			public Save(){ // constructor
+				super();
+			}
+			
+			Save s=new Save();
+		}
+2. By Implementing an Runnable interface
+	
+	till jdk 1.5 
+		-> 100 task - 
+
+Optimized Java Code:-
+	1. Avoid Writing Long Methods
+	
+	2. Avoid Using the BigDecimal Class
+	
+	3. Use Primitive Types Wherever Possible - Integer - int
+		
+	4. Avoid Using Regular Expressions in Your Java Code
+	
+	5. Perform Profiling and Load Testing
+	
+	6. Use Stored Procedures Instead of Queries	
+	
+	7. Use PreparedStatement Instead of Statement
+
+	8. Select Only the Columns You Require in a Query
+		
+	9. Use StringBuilder - muttable
+		Strings are immutable 
+
+	10. Use Caching in Java Applications
+			
+Why principles for the programmer:-
+=================================
+	Design Principle -> Good Design -> good application
+		-> Good Application
+			-> Resilient -> bug free and should not hang
+			-> Maintanable -> add new features
+			-> Testable -> that has to testable
+	
+SOLID principles:-	
+	(Object Oriented Design principles) 
+	1. Single Responsibility Principle
+		“One class should have one and only one responsibility”
+		This principle states that there should never be more than 		one reason to change a class
+		
+	2. Open Closed Principle
+		- software entities (classes, modules, functions, etc.) 			  should be open for extension, but closed for 		  modification.
+		- should not change exisiting code(existing might create 		  a new bug) 
+		- new features can be added in the new code
+
+	3. Liskov Substitution Principle
+		- Derived types must be completely substitutable for 		  		  their base types
+			B obj = new A();
+		- if class A is a subtype of class B, we should be able to 		  replace B with A without disrupting the behavior of our                    program.
+		- base class objects can be replaced by objects of 		  subclasses without changing a program's properties. 
+
+	4. Interface Segregation Principle
+		- “Clients should not be forced to implement unnecessary 		  	  methods which they will not use”
+		  public interface Converter{
+		  	public File generateExcel();
+			public File generatePdf();
+			public File generateJpg();
+		  }
+		
+	5. Dependency Inversion Principle
+	        - “Depend on abstractions, not on concretions”
+	        - dependencies within the system are built based on 		  abstractions. 
+		abstract method
+		conctere method
+		
+		interface A{
+			void display();
+		}
+		class AImplementation implements A{
+			void display(){
+			}
+		}
+
+		class B{   //execute
+			B(AImplementation)
+			A a = new AImplementation(); // dependency
+			a.diaplay()
+		}
+
+		
+DRY Principles:-Don't repeat your code
+
+		
+YAGNI Principles:-(You Aren't Gonna Need It")
+
+Design Document  -> UML diagrams - class diagram
+
+
+
+HTML:-
+	HTML 5 -> Many advanced elements or tags -> audio, video , etc
+	       -> Semantic HTML elements or tag
+		article
+		aside
+		navbar
+		section
+		footer
+		header
+		main
+	
+		audio
+		video
+		
+				
+Html attribute
+	name=value
+
+Html Element Type:-
+	1. Inline Level Element - <strong> <em> <span>
+	2. Block Level Element	- <br/> <h1> <p> - CSS box model
+	
+	<b></b> -  inline
+	html5 -> <strong></strong> - inline - semantic and meaningful
+	<i></i>
+	<em></em> - emphasis
+
+DOM Tree:-
+
+HTML - content
+CSS - styling or appearence
+Javascript - interaction and event handling
+
+
+CSS(Cascading Style Sheet):-
+	styledeclaration 
+		stylename1:stylevalue1;
+		stylename2:stylevalue2;
+		stylename3:stylevalue3;
+	
+	General Style Rule:-
+	*********************
+	selector {
+		stylename1:stylevalue1;
+		stylename2:stylevalue2;
+		stylename3:stylevalue3;
+	}
+	p {
+            font-size:2em;
+            color:red;
+        }
+	1. Inline Style declaration -> writing style declarations near by
+				       any html element in style attribute
+	2. Internal Style Declaration
+				    -> Writing style declarations inside 
+				       head element using 				       tag <style></style>
+	3. External Style Declaration
+	
+	
+	CSS Selectors:-
+		1. element selector
+			p {
+            			font-size:2em;
+            			color:red;
+        		}
+			div {
+            			background-color: black;
+            			color: white;
+        		}
+
+		2. class selector
+
+	All html elements Default style
+		1. Inline -> default style
+		2. block -> default style
+			<div></div>
+
+css text styling:-
+	CSS GRID vs FLEXBOX
+
+Javascript:-
+	* It is a scripting language gets executed inside the browser
+	* Each browser javascript execution engine will execute the	
+	  javascrtipt
+	* Javascript is not an java language
+	* javascript -> interaction or dynamic
+			user --> interacts --> webpage
+			
+	* Node.js - Enviroment --> javascript excute the js code
+ 
+	* JVM or JRE -> Environment 
+
+		Browser -> client side
+		Node.js
+	* Javascript Language - OOP
+			keyword
+			type 
+			variable
+			function
+			classes
+			interface
+			inheritance
+	* javascript is not a strict type language
+		var variablename;
+			var a;// Runtime or execution time
+			function functionName(var name,var name2){
+				//logic
+			}
+	* java strict type language
+		datatype variable;
+			int a; // compile time
+		void methodname(datatype name,datatype name1){
+			//logic
+		}
+
+
+	1. Inline -> near by any html element if we write script
+	2. Internal-> inside head tag if the script is written
+	3. External -> script is written outside in a seperate file
+
+
+	js datatypes:-
+		
+				datatypes
+					
+	primitive 					non primitive
+
+	1. number					Array
+	2. boolean					object
+	3. string
+	4. null
+	5. undefined
+
+	js Array [] , Object {}:-
+	************************
+			var scores=[46,687,34,767,34];
+			var cityNames=['chennai','mumbai',"Pune","visak"];
+			var isSuccess=[true, false, false, true];
+
+	var person = {name:rajesh,no:4545,profession:trainer};
+			Object -> properties and behavoiour
+			properties -> name:value
+	
+
+	Note:-
+		Polam Vasavi -> handling nullpointerexception	
+			if(==null){
+				
+			}else{
+				
+			}
+		Radhesh Sri Sai -> example for lambda
+		Suhubhradeep Bose -> Collection class hierarichy
+				     HashMap 
+		Rakshada vivek Wankhade -> 
+		Thote Roshan Kumar -> multithreading, synchronized
+		Sheik 
+		Gaikwad mohana vamshi-> try catch vs throws
+DOM method:-
+		document.getElementById("idname");
+Event Handling:-
+***************
+		-> Event Source -> Html element which generates an event
+		-> Event Object -> contains information about event
+		-> Event Handler-> js method which get executed when event				   gets triggers
+		
+		-> EventListeners
+
+Types of Events:-
+		click
+		submit
+		blur
+		keyup
+		keydown
+		keypress
+		mouseover
+		dbclick
+
+MySql:-
+	data -> useful information is called as data
+	database -> collection of useful information
+	dbms -> It is a s/w, manage the data and databases.  
+		-> player1 - data
+		-> player2 - data
+		-> player3 - data
+
+DB-> structured(table) db(SQL) or unstructured database(No-SQL) MangoDB
+
+		Relational Database Management System
+		***************************************
+		mysql - mysql - dbms -> datamodel - table
+		oracle corp-oracle - dbms -> datamodel - table	
+		IBM-db2 - dbms -> datamodel - table
+		postgresql - dbms -> datamodel - table
+		sybass - dbms -> datamodel - table
+
+		player - player data, ground data,visitors 					data,environemnt data	
+		data model -> how the data is got organized inside the db.
+        	      table structure -> rows and columns
+Managing the database through DBMS:-
+**********************************	
+	list all databases
+		SHOW DATABASES;	
+	create a database:-
+		CREATE DATABASE databasename;	
+	Choosing a database;
+		USE databaseName;
+	how to check the current database selected:
+		SELECT database();
+	delete the database:
+		DROP DATABASE databasename;
+	command to list tables from the database:
+		SHOW TABLES;
+Manage the Tables in Database:-
+******************************
+	1. create table
+		CREATE TABLE tablename(columnname1 DATATYPE,columnname2 			DATATYPE, columname3 DATATYPE,....);
+		With Constraint:-
+		****************
+		CREATE TABLE tablename(columnname1 DATATYPE 		CONSTRAINTTYPE,columnname2 DATATYPE CONSTRAINTTYPE, 		columname3 DATATYPE CONSTRAINTTYPE,....);
+	2. alter table - column
+	ALTER TABLE tablename MODIFY COLUMN columname newdatatype(newsize)
+	ALTER TABLE tablename ADD COLUMN columname datatype(size);
+	ALTER TABLE tablename DROP COLUMN columname;
+	ALTER TABLE tablename RENAME COLUMN oldcolumnname to newcolumname;
+	3. delete a table
+		DROP TABLE tablename;
+	4. Rename the table name
+		RENAME TABLE tablename to newtablename;
+	4. desc table
+		DESC tablename;
+
+Managing a row in the table:-
+*****************************
+	1. add a row - INSERT A ROW
+		INSERT INTO tablename VALUES(col1value,col2value,...);
+		INSERT INTO tablename(colname1,colmname2,...) 
+		VALUES(col1value,col2value,....)
+	2. display the row(s)
+		SELECT * FROM table WHERE columnname operator value;
+	3. update the row
+		UPDATE tablename SET columnname=newvalue,columnname=newvalue,...... WHERE condition;
+	4. delete a row
+		DELETE FROM tablename WHERE condition;
+
+clauses:-
+********
+	Used to filter from the group of databases,tables,columns 
+	USE clause - used to filter a one database from the databases
+	FROM clause - used fileter a table from the tables in a db
+	WHERE clause -used to filter a row from rows of the selected table
+	SELECT clause - used to filter a column from columns from the rows
+	ORDER BY clause - ascending order or descending order
+	GROUP BY clause - 
+	Having clauses - it is a condition applied on a group by results
+	JOIN clause 
+	
+
+
+	WHERE condition; columnname operator value
+		cityName='Chennai'
+		age>18
+		salary<=4999
+		condition LOGICOPERATOR condition
+		salary<=4999 AND salart>=1000
+		salary<=4999 OR salart>=1000	
+Constraints:-
+	* Constraints - it is a condition or rule applied on a column
+		unique - all values in the column should be different					 value, also it takes zero or more null value
+		not null - the values in the column can be same but it 					   will not accept null value
+		primary key - unique + not null - no duplicate + no null
+		check - 
+		default - 
+	* Referential contraints or foreign key contraint -> Hibernate
+
+Aggregate Function:-
+	* it takes group of values performs some calculation and returns
+	  a single result.
+	  SUM(), AVG(), COUNT(), MIN(), MAX()
+
+JOINS:-
+	* WHAT - joining one or more table is called as join
+	* WHEN - if you wants to retrive the data from more than one table
+		 u can use joins 
+	* HOW - if you want to perform a join
+		1. tables that you want to perform join should be 		   relationship
+		2. if not two tables that you want to join
+		   should hava common column name or common column data on 		   both the tables
+
+select firstname,CUSTOMER_CONTACT_NO,CUSTOMER_DATE_OF_BIRTH DATE,account_number,account_status from customer_master,account_master where customer_master.customer_number=account_master.customer_number;	
+
+
+	Types of joins:-
+		1. Theta Join
+		2. Ansi Join
+		3. Cartesian join
+		4. Inner join - produce the result which matches join 			        condition
+			-> equi inner join
+				* type of inner join. join condition 
+				  operator =
+				 select * from bank_account ba inner join 				         loan l on ba.account_no=l.account_no;
+			-> non equi inner join
+				select * from bank_account ba inner join 				        loan l on ba.account_no>=l.account_no;
+			-> natural join
+				
+		5. Outer join - produce the result both matching join 			                        condition and non matching join condition
+			-> left outer join
+			-> right outer join
+			-> full outer join
+		6. self join - 
+
+
+Stored Procedure:-
+	- It enables procedural language like c program
+	- Procedural Language capabilities - variable, method,arg to 	  method u can return some value
+	- SQL Langauge or SQL Commands - u can write the query
+	- PL/SQL - along with a sql. u can also like variable,function
+	           pass an arg, return some value
+	- PL/SQL - 1. Stored Procedure 2. Stored Function
+	- It is stored in the database permanently
+
+	- SQL vs PL/SQL
+
+	- Procedure in PL/SQL
+		Why -> code can be reused
+		
+		java->	 int a; // datatype variablename;
+		PL/SQL -> a int; // varibalename datatype; 
+		Argument to the procedure
+		IN -
+		OUT - 
+		IN/OUT
+		t1 - Query1,Query2,Query3
+
+		DELIMITER //
+		CREATE PROCEDURE procedureName()
+		BEGIN
+			----query1;
+			----query2;	 
+			----query3;	
+			
+		END // 	
+		SQL ENGINE -> everytime parse,compile,optimize,execute
+		PL/SQL ENGINE -> firsttime parse,compile,optimize,execute
+				 next time when u call the procedure
+				 the query's inside the procedure directly 				 execute the query(Precompiled)
+		
+		SQL>query1;time t1
+			-
+		SQL>query2;time t2
+		SQL>Query3;time t3
+
+
+	void methodName(datatype variable)
+	{//BEGIN
+		---
+		---
+		---
+		return s;		
+	}//END		
+		
+2.Stored Functions:-(Calculations)
+	1. predefined function	
+		sum(),avg(),count(),etc,..
+	2. userdefined function
+	DELIMITER //
+	CREATE FUNCTION functionname(arg) 
+	RETURN DATATYPE
+	BEGIN
+		statements;
+		RETURN variablename;
+	END //
+
+JDBC:-
+====
+	Java Database Connectivity
+	JDBC API
+		java.sql
+			DriverManager class:-
+			--------------------
+			public static Connection getConnection(String url,
+        		String user, String password) throws SQLException
+			
+			Connection interface:-
+			----------------------
+			  Statement createStatement() throws SQLException;
+			  PreparedStatement prepareStatement(String sql)
+        		  throws SQLException;
+			  CallableStatement prepareCall(String sql) throws 			  SQLException;
+	
+			Excute SQL Query - 3 jdbc api interface
+			1. Statement - interfaces
+			--------------------------
+			ResultSet executeQuery(String sql) throws 					SQLException;
+			int executeUpdate(String sql) throws SQLException;
+			boolean execute(String sql) throws SQLException;
+			2.PrepareStatement - interface	
+			------------------------------
+			ResultSet executeQuery() throw SQLException;
+			int executeUpdate() throws SQLException;
+			boolean execute() throws SQLException;
+			3. Callable Statement - interface
+			---------------------------------
+			
+			
+			ResultSet interface:-
+			--------------------
+			  boolean next() throws SQLException;
+
+
+javax.sql	
+			jdbc:mysql://localhost:3306/mindtree
+
+	Statement ------------------------------------ PreparedSatement
+	1. static SQL Query    ---------------      1. synamic sql query
+insert into trainees values		    insert into trainees values
+('M1001','rajesh',57577);                   (?,?,?);
+insert into trainees values			setter methods can set
+(m1.getId(),m1.getName(),m1.getPhone());	value in the ?						(placeholder)
+2. DDL or DML commands				2. only DML commands
+3. query gets executed				3. same query executed
+   only once					multiple time
+4. performance is slow				4. performance better
+5. query will not be precompiled		5. query precompiled
+   parse,compile, optimize,execute	parse,compile, optimize,execute	
+insert into trainees values		insert into trainees values
+('M1001','rajesh',57577); 		('M1001','rajesh',57577); 				
+t1->parse,compile, optimize,execute   t1->parse,compile, optimize,execute
+t2->parse,compile, optimize,execute   t2->execute
+t3->parse,compile, optimize,execute   t3->execute
+
+
+
+	www.minds.mindtree.com
+		com.mindtree.minds.io -> package - IO Layer
+		com.mindtree.minds.bo -> package - Business Object Layer
+		com.mindtree.minds.dao -> package - Data Access Object Lay
+		com.mindtree.minds.model-> package - Model Layer
+	
+Maven:-
+	- Apache Maven is a software project management tool.
+	- Project Management tool 
+		* create a project
+		* add dependecy
+		* configure the project
+		* test the code
+		* run the code
+		* jar file
+		* deploy
+	- Based on the concept of a project object model (POM) XML file
+        - Advantage of maven:-
+		- Standard project structure
+		- Dependency management
+		- Build process - making a jar or war of your project
+		- Quality project information 
+		- documentation
+
+	- GroupId - company name
+	- ArtifactId - project name
+	- Version - 
+	- Packaging - Archive file jar or war
+	
+	Archetype -> ArchetypeId and ArchetypeVersion
+		     Template of an project
+		     quickstart -> Template console application
+		     webapp-> Template web application
+
+	Install maven setup the maven,
+	maven commands in command line
+
+	Flavours of install:-
+	********************
+	Plug and play -> zip file extract it use it
+	.msi or .exe -> install
+
+	Installing a maven into local machine Step by Step:-
+	***************************************************
+	Step 1: make sure jdk 1.7 and above is there in your machine
+		If not download and install the jdk 1.7 or above first
+		java --version
+		maven --version
+	Step 2: Downloan maven from the official website
+		https://maven.apache.org/download.cgi
+		Downlaod as apache-maven-3.8.6-bin.zip file
+	Step 3: Extract it use it
+	Advance System Variable -> Environment Variable-> System variable
+	JAVA_HOME  C:\Program Files\Java\jdk-11.0.7
+	MAVEN_HOME F:\Java Jars\apache-maven-3.8.6-bin\apache-maven-3.8.6
+	path  javabin path C:\Program Files\Java\jdk-11.0.7\bin
+	Path mavenbin path F:\Java Jars\apache-maven-3.8.6-bin\apache-				   maven-3.8.6\bin
+	Step 4: mvn archetype:generate -DGroupId:com.demo -		DArtifactId:projectname etc
+	Step 5: can import the project into eclipse or sts
+
+	Human Lifecycle:-	
+		Baby -> phases 1 pahse 2 phase - goal
+		Kid ->  3 phase - 12 pahses - goal
+		Teen -> pahse - 13 phases 14 pahses- 19 phases - goal
+		Adult - goal 
+		Matured - goal
+		Old man - goal
+		Die - goal
+	Maven Lifecycle:-
+		default -> create and deploy the project
+			validate- verify the maven project 
+			compile - compile the maven project file
+				  target/classes/.classes
+			test -    executes the unit testing code of maven 			                  project
+				  
+			package - it will make single archive file .jar
+				  generated .jar file available at target
+				  target/generated.jar file
+			verify -  run the integration test
+			install - already generated .jar or war file 				  deployed at local maven repository
+			deploy -  already generated .jar or war file 				                  deployed at remote maven repository 
+
+		clean -> clean the existing project
+			pre-clean. clean. post-clean. 	
+		site -> making documentation of your project
+			presite
+			site 
+			postsite
+			site-deploy
+
+* Maven if u want to achive a goal. that goal task is executed by plugin
+
+ 	Phase		 goal			Plugins:goal
+--------------------------------------------------------------------------1. validate		validate	 	               
+
+2. compile		compile			compiler:compile
+
+3. test			test			surefire:test
+
+4. package		package			jar:jar
+
+5. verify
+	
+6. install		install			install:install
+
+7. deploy		deploy			deploy:deploy	
+
+Repository:-
+	a place or container where something is deposited or stored
+
+Maven Repositories:-
+********************
+	* place or container where maven things is deposited or stored
+	two types of repositories:-
+	==========================
+	1. Local Repository -> local machine - C:\Users\rajesh\.m2 
+				.m2 - local maven repository 
+	2. Remote  Repository -> remote machine(internet)
+				https://repo.maven.apache.org/maven2/
+
+
+Java
+	Console application		
+	Window application - swings or applet
+	web application - client / server
+			html,css,js / servlet,jsp
+	
+	servlet,jsp --> EJB --> struts --> Spring Framework--> spring boot
+						  --> spring microservices
+Spring Framework:-
+	Why Spring:-
+	-Spring makes programming Java quicker, easier, safer
+	-Spring’s focus on speed, simplicity, and productivity has made it 	-The world's most popular Java framework.
+	Advantage:-
+	
+	Spring’s flexible 
+		 extensions and third-party libraries 
+		 Inversion of Control (IoC) 
+		 Dependency Injection (DI) features
+ 	Spring is fast
+	Spring is secure
+
+	IOC -> 
+	Bean ->
+	DI -> 
+
+Core containers:
+	Beans - create a bean
+	Core -> Spring core - DI and many more
+	Context -> IOC 
+	SpEL -> Spring Expression Language
+
+	WebApplication -> spring dependency 
+			  spring bean dependency ,spring core dependency
+			  spring context dependency,spring SpEL dependency
+
+	Java Beans - implements Serializable interface
+		   - no arg constructor
+		   - make all variable private
+		   - public Getters / Setters
+
+	IOC
+
+	How to write Bean configuration file
+	<?xml version="1.0" encoding="UTF-8"?>
+	<beans xmlns="http://www.springframework.org/schema/beans"
+    	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    	xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    	<bean id="..." class="...">  
+       		
+    	</bean>
+
+   	<bean id="..." class="...">
+    	</bean>
+
+   
+
+	</beans>
+
+@Component  -> container creates a bean. but cannot auto-detect
+	       component-scan
+			
+			@Component
+
+	@Controller	@Service	@Repository
+
+				BeanFactory  Vs	ApplicationContext
+
+Annotation Support		No 		Yes
+Bean Instantiation/Wiring	Yes		Yes
+Internationalization		No		Yes
+Enterprise Services		No		Yes
+ApplicationEvent publication	No 		Yes
+Automatic BeanPostProcessor
+registration			No		Yes
+Loading Mechanism	        Lazy loading	Aggressive loading
+Automatic 
+BeanFactoryPostProcessor
+registration			No		Yes
+
+	Injection
+		
+	Setter Based Injection - inject value into the instance variable 		(Property)		 via setter method of the bean
+		<bean id="t2" class="com.mindtree.springdemo.Train">
+		<property name="trainNumber" value="2345"></property>
+		<property name="trainName" value="Shadapti 		Express"></property>
+		<property name="source" value="chennai"></property>
+		<property name="destination" value="New Delhi"></property>
+		</bean>
+	
+
+	Constructor Based Injection - inject value into the instance 			(constructor-arg)             variable via arg constructor of the 				      	      bean
+
+		<bean id="t1" class="com.mindtree.springdemo.Train">
+		<constructor-arg name="tn" value="2345"></constructor-arg>
+		<constructor-arg name="tNa" value="Shadapti 				Express"></constructor-arg>
+		<constructor-arg name="s" value="Chennai"></constructor-			arg>
+		<constructor-arg name="d" value="New Delhi"> 		</constructor-arg>
+		</bean>
+	
+	Dependency Injection:-
+
+	@Autowired tells Spring that this field is a dependency that needs 	to be automatically wired by a matching bean.
+
+Spring vs SpringBoot
+	Spring Boot Dependences:- 
+		spring-boot-starter -> is going to bring other 
+				       dependend dependences
+	Ways to create spring boot project
+	1.
+	2.
+
+	stand alone application - main method client/server
+	web application - no main method in the application,client/server
+	Spring framework:-
+	1. added dependency      -@Configuration
+	2. IOC container - ApplicationContext  - @EnableAutoConfiguration
+	2. xml file bean config
+	3. <context:annotation-config>
+	   <context:component-scan>	- @ComponentScan
+	
+	Minimal configuration
+	dependency
+	Objective:-	
+	1. how to create spring boot project
+	2. what @SpringBootApplication annotation
+	3. create a layered architecture
+	4. how to create a bean inside the webapplicationcontext
+	   container @Component @Service @Repository
+	5. Inject or autowire the one class bean object to an another                 class
+
+Spring boot mvc project:-
+========================
+	spring-boot-starter-web dependecy
+	Thymeleaf - view - 
+	view resolver -> application has many view. 
+			 view resover is going to pick one view from views
+
+
+	M - Model 
+	v - view  Thymeleaf - view or template (html,css,js)
+	c - controller (@Controller @RequestMapping)
+
+@Controller - Spring Mvc application
+	manage the http request and http response	
+	It creates bean inside the web application context(IOC Web 	container)
+	@RequestMapping - It maps the request to java method
+	@RequestBody -
+	@ResponseBody -
+
+Spring Web - @Controller @RequestMapping
+	 By default its a spring mvc application. it will look for 	     	 view 
+Spring Web:-  @Controller @RequestMapping @ResponseBody
+	It becomes an Rest API application
+
+REST API:-
+	REpresentational State Transfer  - REST
+	__		 _     _	
+	
+	WebService -> SOAP
+		      REST API
+
+	Rest API -> which follows set of Restful Architecture Rules
+	REST is a software architectural style that defines the set of 	rules or constraints to be used for creating web services. 	    	
+	Uniform Interface
+		visibility of interactions
+		https://jsonplaceholder.typicode.com/
+		https://jsonplaceholder.typicode.com/posts
+		https://jsonplaceholder.typicode.com/comments
+		https://jsonplaceholder.typicode.com/albums
+		https://jsonplaceholder.typicode.com/photos
+		https://jsonplaceholder.typicode.com/todos
+		https://jsonplaceholder.typicode.com/users
+
+		https://jsonplaceholder.typicode.com/posts/1
+		https://jsonplaceholder.typicode.com/users/1
+		https://jsonplaceholder.typicode.com/comments/3
+		
+	Stateless
+	Cacheable
+	Client-Server
+	Layered System
+	Code on Demand
+
+	Http - is a protocol
+	       Student -> studentId,studentName,studentEmail
+	       Http Method - 				
+	       create student resource - POST
+	       get student resource - GET
+	       get one student - GET
+	       update student resource - PUT
+	       delete a resource - DELETE
+
+PUT 	http://localhost:8282/constructions/construction - URI Path
+							   Path varaible
+POST	http://localhost:8282/constructions/construction 
+		- create construction resource
+GET	http://localhost:8282/constructions 
+		- Get All constructions resources
+DELETE  http://localhost:8282/constructions/construction/regno
+GET	http://localhost:8282/constructions/construction/regno 
+		- Get One constructions resources
+
+
+	
+	Rest API:-
+		1. Uniform Resource:-
+		
+		POST http://localhost:8282/bank - create a bank resource
+		GET http://localhost:8282/banks - Get all bank resources
+		GET http://localhost:8282/banks/id - Get one bank 							resources
+		PUT http://localhost:8282/bank - update a bank resource
+		DELETE http://localhost:8282/bank - delete a bank resource
+		
+		2. client / server
+
+		3. Layered Architecture
+
+	Rest API-> @Controller @ResponseBody  Still spring 3.x version
+		   @RestController -> @Controller @ResponseBody 
+			after spring 4.x versions	 
+		@RequestMapping -> still spring 2.x version to 4.2 version
+
+ResponseEntity
+
+Validation
+
+	Client Side Validation - js validation
+	Server Side Validation - Back end validation
+	8.1. @Null constraint
+	8.2. @NotNull constraint
+	8.3. @AssertTrue constraint
+	8.4. @AssertFalse constraint
+	8.5. @Min constraint
+	8.6. @Max constraint
+	8.7. @DecimalMin constraint
+	8.8. @DecimalMax constraint
+	8.9. @Negative constraint
+	8.10. @NegativeOrZero constraint
+	8.11. @Positive constraint
+	8.12. @PositiveOrZero constraint
+	8.13. @Size constraint
+	8.14. @Digits constraint
+	8.15. @Past constraint
+	8.16. @PastOrPresent constraint
+	8.17. @Future constraint
+	8.18. @FutureOrPresent constraint
+	8.19. @Pattern constraint
+	8.20. @NotEmpty constraint
+	8.21. @NotBlank constraint
+	8.22. @Email constraint
+
+Richardson Maturity Model
+	* Lenon Richardson 
+	* Measure or model whether application is a rest api
+	* Level 0 ------> Level 3
+	  Level 0 ---> Not a Rest API
+	  Level 1 ---> Uniform Resource
+			http://localhost:8282/bank
+			http://localhost:8282/customer
+			http://localhost:8282/account
+			http://localhost:8282/statement
+		       Uniform Resource Path
+			http://localhost:8282/bank/sbi/{branchcode}
+			http://localhost:8282/customer/{customerno}
+			http://localhost:8282/account/{accountno}
+		       Uniform Resource Unique Identitier
+			http://localhost:8282/bank/sbi/47679
+			http://localhost:8282/customer/356
+			http://localhost:8282/account/54687765
+	  Level 2  ---> Http Methods
+		PUT     http://localhost:8282/constructions/construction 
+		POST	http://localhost:8282/constructions/construction 
+		GET	http://localhost:8282/constructions 
+		DELETE //localhost:8282/constructions/construction/regno
+		GET http://localhost:8282/constructions/construction/regno 
+		
+	  Level 3  ---> HATEOAS  	
