@@ -1453,3 +1453,355 @@ Richardson Maturity Model
 		GET http://localhost:8282/constructions/construction/regno 
 		
 	  Level 3  ---> HATEOAS  	
+
+String Data Jpa:-
+	
+	Query will be generated automatically based 
+	save -> insert update
+	findAll -> select
+	findById -> select where id
+	deleteById -> delete where id
+
+
+	Custom Query generetation types:-
+		 can Programmer ask Spring data Jpa Generate Query 
+		1. by methods - JPA generates a JPQL Query automatically
+		2. By @Query annotation JPA executes our JPQL query
+		3. By @Query and NativeQuery=true
+			JPA exexutes out sql query
+
+
+	// get the construction based on by construction company name
+	// get the construction based on by construction company email
+	// get the construction based on by construction company profit
+
+	# ddl-auto=update 
+		- if table is not exits it will create a new Table and 		 		  insert a row into the table
+		- If table already exisiting means it just insert the row
+		  Rather than creating a new Table
+		  (Note : it will not drop the exisiting table and 		  		  recreate the table again) 
+		  
+	# ddl-auto=create
+		- if the table is exists or not exits every time you run 		  	  it will not drop the exisiting table and recreate the 		 	  new table again 
+		  drop the existing table and create a new table
+Mapping:-
+	Primary Key 
+	Reference key or foreign key
+	Realtionship between the two tables
+	One-to-One  (1:1)
+	One-to-Many (1:N)
+	Many-to-One (N:1)
+	Many-to-Many(M:N)
+
+Monothilic Application:-
+	Online E-commerce  --> Client --> amazon.jar
+	Team 1	---> customer 
+	Team 2	---> products - heavy traffic 
+	Team 3	---> cart(error)
+	Team 4	---> inventory
+	Team 5	---> payment - code changes - test payment - ok 
+	Team 6	---> voucher / discounts
+	Team 7	---> dispatch
+	Team 8	---> fullfilled
+	Team 9	---> return
+	
+	database -> mysql
+
+
+		mindtree
+		Deployement = amazon.jar ----> Buy a Servers
+					       Aws, Azure, GCP
+		Real time server - 
+			Processing - cpu - 16 core cpu
+			MEMORY    - Ram  - 64gb
+			PERFORMANCE - 	
+			IO Per seconds 	
+			Request/response per request - 3000  
+		Christmas Day Sale - 10000 - 2 days
+		
+		traffic req/res
+end user   ------------------------------>	server
+(3000)	   <------------------------------	(3000 req/res)
+
+physical server vs virtual server - vm 
+		traffic req/res
+end user   ------------------------------>	server
+(6000)	   <------------------------------	(6000 req/res)
+
+		traffic req/res
+end user   ------------------------------>	server
+(3000)	   <------------------------------	(3000 req/res)
+
+
+		traffic req/res
+end user   ------------------------------>	server
+(3000)	   <------------------------------	(3000 req/res)
+		
+		
+	
+
+	scale the resources
+		Horizantal Scaling
+		Vertical Sacling 
+
+	Advantages:-
+		Simplicity of development
+		Simplicity of debugging	
+		Simplicity of testing
+		Simplicity of deployment - .jar file into the real time 					   	   server	
+	Disadvantages:-
+		Slower development speed - project complexity
+		High code coupling - when change code in one module 
+				     it created bugs at other module
+		Testing becomes harder - 
+		Scalability 
+		Performance issues
+		The cost of infrastructure.
+		Problems with the Deployment - .jar file into the real 				time server
+		
+
+	UI			Serverside		database 		
+
+Microservices design patterns architecture:-(distributed architecture)
+	* Independent / Autonomous
+		project - customer-service     database - server1	
+min 3 product	project - product-service      database  - server2
+auto		project - product-service      database  - server7
+scaling		project - product-service      database  - server9
+
+		project - payment-service      database   - server 6
+
+		project - inventory-service    database  - server3
+		
+		project - cart-service         database	 - server4
+		
+		project - order-service	     database	 - server5
+		
+	* Resilient / Fault tolerence / Design for failure
+		
+	* Observable - Monitering, Logging, Health
+
+	* Discovery - Each Service discoverable each other
+		customer - talks to - product -> cart
+	* Domain Driven 
+		all the services is accessable via uri
+	* Decentarlization of database
+		each service is going to have one database
+	* Service communication
+		Service --->can talk to ---> other service
+	* Availability (Auto-scaling)	
+	* Scalable
+	* Efficient --> cost is very less
+	
+
+Service to Service communication
+	1. Rest Template -  spring-boot-starter-web
+		@Configuration
+		public class CustomerConfig {
+			@Bean
+			public RestTemplate restTemplate() {
+				return new RestTemplate();  	
+			}
+		}
+		@Autowired
+		private RestTemplate restTemplate;	
+
+
+	2. WebClient 
+		add dependency spring-boot-starter-webflux
+		
+
+Discovery and Registry Design Pattern:-
+------------------------------------
+		Eureka - Netflix	
+		Zoolkeeper
+		Consul
+		
+		1.Discovery Eureka Server
+			create a new spring boot project
+			Add starter dependency Eureka Server
+			application.properties
+				server.port=8761
+				eureka.client.register-with-eureka=false
+				eureka.client.fetch-registry=false
+			goto the main method class
+			annotate @EnableEurekaServer
+			Then run the eureka server application 
+			open the browser http://localhost:8761/
+			It will open eureka dashboard
+		
+		2. customer-service already running
+			pom.xml -> right click-> add starter
+			add dependency Eureka-Discovery-client
+			application.properties
+				spring.application.name=CUSTOMER-SERVICE	
+				eureka.client.register-with-eureka=true
+				eureka.client.fetch-registry=true
+				eureka.client.service-			url.defaultZone=http://localhost:8761/eureka/
+			goto the main method class
+			annotate @EnableDicoveryClient
+			Goto the eureka dashboard check this service is 
+			registered
+		3. product-service already running 
+			pom.xml -> right click-> add starter
+			add dependency Eureka-Discovery-client
+			application.properties
+				spring.application.name=PRODUCT-SERVICE	
+				eureka.client.register-with-eureka=true
+				eureka.client.fetch-registry=true
+				eureka.client.service-						url.defaultZone=http://localhost:8761/eureka/
+			goto the main method class
+			annotate @EnableDicoveryClient
+			Goto the eureka dashboard check this service is 
+			registered
+
+Circuit Breaker pattern - fault tolerance and resilent
+	* Identify single point failure 
+	* Avoid cascading failure
+
+	Close -> the other service whom you working it is fine
+	Half Open -> other service is not responsding
+	Open -> Depdendent is not working
+
+
+	Steps to implement the circuit breaker
+		customerservice -----> ProductService	
+		1. In customerservice project open the POM.xml
+		2. Add starter --> scircuitbreaker-resilience4j
+		3. goto the main method class
+			annotate @CircuitBreaker(name="anyname")
+		4. CustomerServiceImplementation class
+			@Autowired
+		     private CircuitBreakerFactory circuitBreakerFactory; 
+	
+		5. CircuitBreaker cb = circuitBreakerFactory.create		   ("anyname");
+		6. String  pro = cb.run(()->restTemplate.getForObject			("http://PRODUCT-SERVICE/product/"+productId, 			String.class), exception -> fallback());		
+		     public String fallback() {
+			return "Product is not available try after 			sometime";
+		     }
+
+ 
+	Spring Cloud Gateway API:-
+			Zuul Gateway
+			Spring cloud gateway
+
+
+Swagger API Documentation:-
+	
+		Rest API - documentation	
+		
+		1.add dependecy spring-boot-starter-swagger2
+		2. Enable the swagger2 @EnableSwagger2
+		3. Swagger @configuration and @bean returns a docket 
+
+
+	product-service  --> maven build --> Generated jar file
+			 --> productservice.jar
+
+	Mindtree->	
+	Physical Server --> productservice.jar deployement
+		- cost 
+		- load more - we want buy servers
+		- load less - resouce under utilization
+		- scale up, scale down 
+		- admin team
+		- updates
+		- electical bill, place, internet
+
+	Virtualization:- vm - virtal machine --> deploy									productservice.jar deployment
+	
+		- AWS, Azure, GCP 
+		- vm or instances - server 
+		- scale up, scale down
+		- pay as u go
+		- cost less
+
+	Docker  --> container --> productservice.jar deployement
+		- container instance - server
+		- scale up, scale down
+Docker
+
+	Accelerate how you build, share, and run modern applications.
+		
+			
+	Build, share, deploy, run your application
+
+	docker images made from docker file 
+
+	docker build -> used to build an docker image from dockerfile
+
+	Docker Eco System:
+		
+		Docker Client - run docker commands
+		Docker Engine (Docker Host) - docker commands will be exe 
+		Images - registry - 
+			local registry - private
+			remote registry(Docker Hub)
+
+	Docker Commands:-
+		
+		Syntax:
+			docker type arg
+		Docker Images commands
+			* list all the images(local repository)
+				docker images
+			* docker login
+				docker login
+					username:
+					password:
+			* pull the image from docker hub to local repo
+				docker pull imagename
+			* How to create our own images
+				Dockerfile - image
+			   	docker build -t crm:1.0 -f Dockerfile .
+			* How to remove image from local repo
+				docker image rm imageidortagname
+
+		Container:-
+			Running instance of the container images
+		
+		Docker Container commands
+			* How to create running container from image
+				docker run imagenameorid
+
+			* to see the running container instances
+				docker ps
+			* to see the running ans stopped container 			  instances
+				docker ps -a			
+
+			* how to stop the running container instance
+				docker container stop containeridorname
+			
+			
+			* how to remove the stopped container
+				docker container rm containeridorname
+				
+			* how to remove the running container without
+			  stopping the running container
+				docker container rm containeridorname -f
+
+spring boot simple rest api app containerization:-
+=================================================
+	Step 1: create a spring boot project
+	Step 2: Build a jar file 
+	Step 3: Place a Dockerfile under the project folder
+		FROM openjdk:17
+		COPY ./target/productservice.jar productservice.jar
+		CMD ["java","-jar","productservice.jar"]
+		Note: file name should be Dockerfile
+	Step 4: create a docker image file from Dockerfile
+		docker build -t imagename -f Dockerfile path
+	Step 5: check the docker image is created in local image registry
+	Step 6: create a container by exposing a port no
+		docker run --name containername -p exposedport:hostport 			iamgenameorimageid
+
+		check the containerized app is running or not
+		docker ps -a
+		Open the browser http://localhost:exposedportno
+		
+		Commands Reference
+		docker run -d --name mysqldb --network productmysql -e 		MYSQL_DATABASE=productdb -e MYSQL_ROOT_PASSWORD=root@123 		mysql
+
+		
+    		docker run --name productservice --network productmysql -p 		9999:8888 psimage
+
