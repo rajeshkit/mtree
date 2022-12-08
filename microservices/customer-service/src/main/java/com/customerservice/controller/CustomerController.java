@@ -38,8 +38,8 @@ public class CustomerController {
 //		return customerService.getProductDetails(productId);
 //		
 //	}
-	@GetMapping("/customer/{productid}")
-	public Product getProductDetails(@PathVariable("productid") int productId) {
+	@GetMapping("/customers/{productid}")
+	public String getProductDetails(@PathVariable("productid") int productId) {
 		
 		return customerService.getProductDetails(productId);
 		

@@ -13,6 +13,6 @@ public interface CustomerService {
 	public List<Customer> getAllCustomers();
 	public Customer getCustomerById(int id);
 	public Optional<Customer> deleteCustomerById(int id);
-	public Product getProductDetails(int productId);
+	public String getProductDetails(int productId);
 	
 }
