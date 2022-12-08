@@ -16,17 +16,17 @@ public class ProductController{
 	@Autowired
 	private ProductService ps;
 	
-	@PostMapping("/create")
+	@PostMapping("/products/product")
 	public Product createProduct(@RequestBody Product p) {
 		return ps.createProduct(p);
 		
 	}
-	@GetMapping("/allproducts")
+	@GetMapping("/products")
 	public List<Product> getAllProducts(){
 		return ps.getAllProduct();
 	}
 	//         /product/"+productIdss
-	@GetMapping("/product/{pid}")
+	@GetMapping("/products/product/{pid}")
 	public Product getProductById(@PathVariable("pid") int pId) {
 		System.out.println("product url /product/"+pId);
 		
